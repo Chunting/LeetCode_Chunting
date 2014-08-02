@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="TraversalTree.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -16,10 +16,14 @@ struct TreeNode {
 	int val;
 	TreeNode * left;
 	TreeNode * right;
+	TreeNode(){};
 	TreeNode(int x) : val(x), left(nullptr), right(nullptr){};
 };
+TreeNode* createTree(vector<int> vec);
+void insertTreeNode(TreeNode* root, int val);
 vector<int> postorderTraversal(TreeNode* root);
 vector<int> preorderTraversal(TreeNode* root);
 vector<int> inorderTraversal(TreeNode* root);
+void print( vector<int> &vec);
 
 #endif
