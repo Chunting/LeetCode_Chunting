@@ -30,19 +30,19 @@ void insertTreeNode(TreeNode* root, int val) {
 
 
 }
+/*
+* Firstly, find the left leaf and push all the nodes in the path into stack;
+* Secondly, take the top element of the stack( which is the left leaf node ), determine if (1) it has right child,
+* and whether (2) the right child has been visited?
+* If it has right child which is not been visited, then push the right sub tree into stack.
+* If not, visite and print the node.
+*/
 vector<int> postorderTraversal(TreeNode* root) {
 	vector<int> result;
 	const TreeNode* p = root;  // The current visiting node; 
 	const TreeNode* q;			// The last visited node;
 	stack<const TreeNode*> s;
 	do{
-		/*
-		* Firstly, find the left leaf and push all the nodes in the path into stack;
-		* Secondly, take the top element of the stack( which is the left leaf node ), determine if (1) it has right child, 
-		* and whether (2) the right child has been visited?
-		* If it has right child which is not been visited, then push the right sub tree into stack.
-		* If not, visite and print the node.
-		*/
 		while( p != nullptr ) {
 			s.push(p);
 			p = p -> left;
