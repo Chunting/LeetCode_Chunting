@@ -144,12 +144,88 @@ vector<vector<int> > levelorderTraversal(TreeNode* root) {
 		}
 	}
 	return result;
-
+}
+vector<vector<int>> levelorderBottom(TreeNode* root){
+	vector<vector<int> > result;
+	if (root == nullptr)
+		return result;
+	const TreeNode* p = root;
+	vector<int> level;
+	queue< const TreeNode* > q;
+	q.push(p);
+	q.push(nullptr);
+	while (!q.empty()){
+		p = q.front();
+		q.pop();
+		if (p != nullptr){
+			level.push_back(p->val);
+			if (p->left != nullptr)
+				q.push(p->left);
+			if (p->right != nullptr)
+				q.push(p->right);
+		}
+		else {
+			if (!level.empty()){
+				q.push(nullptr);
+				result.push_back(level);
+				level.clear();
+			}
+		}
+	}
+	/* The only diffirence from vector<vector<int> > levelorderTraversal(TreeNode* root) */
+	reverse(result.begin(), result.end());
+	return result;
+}
+vector<vector<int>> zigzagLevelOrder(TreeNode *root){
+	vector<vector<int>> result;
+	if (root == nullptr)
+		return result;
+	vector<int> level;
+	const TreeNode* p = root;
+	queue<const TreeNode*> q;
+	bool left_to_right = true;
+	q.push(p);
+	q.push(nullptr);
+	left_to_right = !left_to_right;
+	while (!q.empty()){
+		p = q.front(); 
+		q.pop();
+		if (p != nullptr){
+			level.push_back(p->val);
+			if (left_to_right){
+				if (p->left != nullptr)
+					q.push(p->left);
+				if (p->right != nullptr)
+					q.push(p->right);
+			}
+			else{
+				if (p->right != nullptr)
+					q.push(p->right);
+				if (p->left != nullptr)
+					q.push(p->left);
+			}
+		}
+		else{
+			if (!level.empty()){
+				result.push_back(level);
+				q.push(nullptr);
+				level.clear();
+				left_to_right = !left_to_right;
+			}
+		}
+	}
+	return result;
 }
 void print(vector<int> &vec) {
 	for (vector<int>::iterator it = vec.begin(); it < vec.end(); ++it) {
 		cout << *it << "	";
 	}
 	cout << endl;
-
+}
+void print(vector<vector<int>> & vecvec){
+	if (!vecvec.empty()){
+		for (vector<vector<int> >::iterator it = vecvec.begin(); it != vecvec.end(); ++it){
+			print(*it);
+		}
+	}
 }

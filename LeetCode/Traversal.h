@@ -29,7 +29,10 @@ vector<int> postorderTraversal(TreeNode* root);
 vector<int> preorderTraversal(TreeNode* root);
 vector<int> inorderTraversal(TreeNode* root);
 vector<vector<int>> levelorderTraversal( TreeNode* root);
+vector<vector<int>> levelorderBottom(TreeNode* root);
+vector<vector<int>> zigzagLevelOrder(TreeNode *root);
 
 void print( vector<int> &vec);
+void print(vector<vector<int>> & vecvec);
 
 #endif

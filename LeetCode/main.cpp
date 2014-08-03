@@ -34,9 +34,14 @@ int main() {
 	print(postvec);
 	cout << endl << "**********Print in leveltorder **************" << endl;
 	vector< vector<int> > levelvec = levelorderTraversal(root);
+	cout << endl << "**********Print in leveltorder from bottom-up **************" << endl;
+	vector< vector<int> > levelvecbottom = levelorderBottom(root);
+	print(levelvecbottom);
 	//for (vector<vector<int>>::iterator it = levelvec.begin(); it != levelvec.end(); ++it)
 	//	print(*it);
-
+	cout << endl << "**********Print in zigzag-leveltorder  **************" << endl;
+	vector< vector<int> > zigzagvec = zigzagLevelOrder(root);
+	print(zigzagvec);
 	system("pause");
 	return 0;
 }
