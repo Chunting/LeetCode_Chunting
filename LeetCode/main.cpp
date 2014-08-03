@@ -11,15 +11,16 @@ int main() {
 	TreeNode *root = new TreeNode(4);
 	TreeNode * t1 = new TreeNode(1);
 	TreeNode* t2 = new TreeNode(2);
-	TreeNode* t3 = new TreeNode(3);
-	TreeNode * t4 = new TreeNode(5);
+	TreeNode* t3 = new TreeNode(5);
+	TreeNode * t4 = new TreeNode(1);
 	TreeNode* t5 = new TreeNode(5);
-	TreeNode* t6 = new TreeNode(6);
+	TreeNode* t6 = new TreeNode(2);
 	root->left = t2;
 	root->right = t6;
 	t2->left = t1;
 	t2->right = t3;
 	t6->left = t5;
+	t6->right = t4;
 	/* Print in preorder */
 	cout << endl << "**********Print in preorder **************" << endl;
 	vector<int> prevec = preorderTraversal(root);
@@ -37,11 +38,12 @@ int main() {
 	cout << endl << "**********Print in leveltorder from bottom-up **************" << endl;
 	vector< vector<int> > levelvecbottom = levelorderBottom(root);
 	print(levelvecbottom);
-	//for (vector<vector<int>>::iterator it = levelvec.begin(); it != levelvec.end(); ++it)
-	//	print(*it);
 	cout << endl << "**********Print in zigzag-leveltorder  **************" << endl;
 	vector< vector<int> > zigzagvec = zigzagLevelOrder(root);
 	print(zigzagvec);
+	cout << endl << "********** is Symmetric Tree  **************" << endl;
+	bool isSym = isSymmetric(root);
+	cout << isSym << endl;
 	system("pause");
 	return 0;
 }

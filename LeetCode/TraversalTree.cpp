@@ -1,4 +1,5 @@
 #include "Traversal.h"
+/*
 TreeNode* createTree(vector<int>& vec){
 	if (vec.empty())
 		return nullptr;
@@ -14,14 +15,15 @@ void insertTreeNode(TreeNode* root, int val) {
 		root = new TreeNode(val);
 	else {
 		if (root->val >= val){
-			insertTreeNode(root->left, val);
 			/*
+			insertTreeNode(root->left, val);			
 			if ( root -> left != nullptr)
 			insertTreeNode(root->left, val);
 			else {
 			root->left = new TreeNode(val);
 			}
 			*/
+/*
 		}
 		else{
 			insertTreeNode(root->right, val);
@@ -30,6 +32,7 @@ void insertTreeNode(TreeNode* root, int val) {
 
 
 }
+*/
 /*
 * Firstly, find the left leaf and push all the nodes in the path into stack;
 * Secondly, take the top element of the stack( which is the left leaf node ), determine if (1) it has right child,
@@ -37,7 +40,7 @@ void insertTreeNode(TreeNode* root, int val) {
 * If it has right child which is not been visited, then push the right sub tree into stack.
 * If not, visite and print the node.
 */
-vector<int> postorderTraversal(TreeNode* root) {
+vector<int> postorderTraversal(const TreeNode* root) {
 	vector<int> result;
 	const TreeNode* p = root;  // The current visiting node; 
 	const TreeNode* q;			// The last visited node;
@@ -64,7 +67,7 @@ vector<int> postorderTraversal(TreeNode* root) {
 	} while (!s.empty());
 	return result;
 }
-vector<int> preorderTraversal(TreeNode* root) {
+vector<int> preorderTraversal(const TreeNode* root) {
 	vector<int> result;
 	const TreeNode* p = root;
 	stack< const TreeNode* > s;
@@ -83,7 +86,7 @@ vector<int> preorderTraversal(TreeNode* root) {
 	}
 	return result;
 }
-vector<int> inorderTraversal(TreeNode* root) {
+vector<int> inorderTraversal(const TreeNode* root) {
 	vector<int> result;
 	const TreeNode* p = root;
 	stack< const TreeNode* > s;
@@ -106,19 +109,19 @@ vector<int> inorderTraversal(TreeNode* root) {
 *			 4			--> nullptr
 *		   /   \
 *		  2     6		--> nullptr
-*		 / \   /  
+*		 / \   /
 *       1   3  5		--> nullptr
 * Here we use a queue as auxiliary data structure, at the end of each level, push an nullptr into queue;
 * So when meet with an nullptr, we should put it into the result and clear the level.
 */
-vector<vector<int> > levelorderTraversal(TreeNode* root) {
+vector<vector<int> > levelorderTraversal(const TreeNode* root) {
 	vector< vector<int>> result;
 	if (root == nullptr)
 		result;
 
 	vector<int> level;
-	TreeNode* p;
-	queue< TreeNode*> q;
+	const TreeNode* p;
+	queue< const TreeNode*> q;
 	q.push(root);
 	q.push(nullptr);
 
@@ -145,7 +148,7 @@ vector<vector<int> > levelorderTraversal(TreeNode* root) {
 	}
 	return result;
 }
-vector<vector<int>> levelorderBottom(TreeNode* root){
+vector<vector<int>> levelorderBottom(const TreeNode* root){
 	vector<vector<int> > result;
 	if (root == nullptr)
 		return result;
@@ -176,7 +179,7 @@ vector<vector<int>> levelorderBottom(TreeNode* root){
 	reverse(result.begin(), result.end());
 	return result;
 }
-vector<vector<int>> zigzagLevelOrder(TreeNode *root){
+vector<vector<int>> zigzagLevelOrder(const TreeNode *root){
 	vector<vector<int>> result;
 	if (root == nullptr)
 		return result;
@@ -186,28 +189,26 @@ vector<vector<int>> zigzagLevelOrder(TreeNode *root){
 	bool left_to_right = true;
 	q.push(p);
 	q.push(nullptr);
-	left_to_right = !left_to_right;
+	//left_to_right = !left_to_right;
 	while (!q.empty()){
-		p = q.front(); 
+		p = q.front();
 		q.pop();
 		if (p != nullptr){
 			level.push_back(p->val);
-			if (left_to_right){
-				if (p->left != nullptr)
-					q.push(p->left);
-				if (p->right != nullptr)
-					q.push(p->right);
-			}
-			else{
-				if (p->right != nullptr)
-					q.push(p->right);
-				if (p->left != nullptr)
-					q.push(p->left);
-			}
+			if (p->left != nullptr)
+				q.push(p->left);
+			if (p->right != nullptr)
+				q.push(p->right);
 		}
 		else{
 			if (!level.empty()){
-				result.push_back(level);
+				if (left_to_right)
+					result.push_back(level);
+				else {
+					reverse(level.begin(), level.end());
+					// reverse the vector completely.
+					result.push_back(level);
+				}
 				q.push(nullptr);
 				level.clear();
 				left_to_right = !left_to_right;
@@ -216,6 +217,40 @@ vector<vector<int>> zigzagLevelOrder(TreeNode *root){
 	}
 	return result;
 }
+
+bool isSymmetric(const TreeNode* root) {
+	if (root == nullptr)
+		return true;
+	queue<const TreeNode* > q;
+	const TreeNode* t1 = root->left;
+	const TreeNode* t2 = root->right;
+	q.push(t1);
+	q.push(t2);
+	while (!q.empty()) {
+		t1 = q.front();
+		q.pop();
+		t2 = q.front();
+		q.pop();
+		if (t1 && t2 && t1->val == t2->val) {
+			if (t1->left && t2->right) {
+				q.push(t1->left);
+				q.push(t2->right);
+			}
+			else if (t1->left || t2->right)
+				return false;
+			if (t1->right && t2->left) {
+				q.push(t1->right);
+				q.push(t2->left);
+			}
+			else if (t1->right || t2->left)
+				return false;
+		}
+		else if (t1 || t2)
+			return false;
+	}
+	return true;
+}
+
 void print(vector<int> &vec) {
 	for (vector<int>::iterator it = vec.begin(); it < vec.end(); ++it) {
 		cout << *it << "	";

@@ -24,13 +24,14 @@ struct TreeNode {
 	TreeNode(int x) : val(x), left(nullptr), right(nullptr){};
 };
 TreeNode* createTree(vector<int>& vec);
-void insertTreeNode(TreeNode* root, int val);
-vector<int> postorderTraversal(TreeNode* root);
-vector<int> preorderTraversal(TreeNode* root);
-vector<int> inorderTraversal(TreeNode* root);
-vector<vector<int>> levelorderTraversal( TreeNode* root);
-vector<vector<int>> levelorderBottom(TreeNode* root);
-vector<vector<int>> zigzagLevelOrder(TreeNode *root);
+void insertTreeNode(const TreeNode* root, int val);
+vector<int> postorderTraversal(const TreeNode* root);
+vector<int> preorderTraversal(const TreeNode* root);
+vector<int> inorderTraversal(const TreeNode* root);
+vector<vector<int>> levelorderTraversal( const TreeNode* root);
+vector<vector<int>> levelorderBottom(const TreeNode* root);
+vector<vector<int>> zigzagLevelOrder(const TreeNode *root);
+bool isSymmetric(const TreeNode* root);
 
 void print( vector<int> &vec);
 void print(vector<vector<int>> & vecvec);
