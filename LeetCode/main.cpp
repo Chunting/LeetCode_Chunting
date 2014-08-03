@@ -21,15 +21,21 @@ int main() {
 	t2->right = t3;
 	t6->left = t5;
 	/* Print in preorder */
+	cout << endl << "**********Print in preorder **************" << endl;
 	vector<int> prevec = preorderTraversal(root);
-	cout << "**********Print in preorder **************" << endl;
 	print(prevec);
+
+	cout << endl<<"**********Print in inorder **************" << endl;
 	vector<int> invec = inorderTraversal(root);
-	cout << "**********Print in inorder **************" << endl;
 	print(invec);
+
+	cout << endl << "**********Print in postorder **************" << endl;
 	vector<int> postvec = postorderTraversal(root);
-	cout << "**********Print in postorder **************" << endl;
 	print(postvec);
+	cout << endl << "**********Print in leveltorder **************" << endl;
+	vector< vector<int> > levelvec = levelorderTraversal(root);
+	//for (vector<vector<int>>::iterator it = levelvec.begin(); it != levelvec.end(); ++it)
+	//	print(*it);
 
 	system("pause");
 	return 0;
