@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="findSubstring.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TraversalTree.cpp" />
   </ItemGroup>
