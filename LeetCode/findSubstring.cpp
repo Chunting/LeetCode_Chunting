@@ -19,15 +19,16 @@ The difference between map and hash_map: http://blog.sina.com.cn/s/blog_54cae6d7
 #include<string>
 #include<stdio.h>
 #include<map>
+#include<hash_map>
 using namespace std;
 
 vector<int> findSubstring(string S, vector<string> &L) {
 	vector<int> res;
-	if (S.empty() || S.length < 1 || L.size() < 1 || L.empty()) {
+	if (S.empty() || S.size() < 1 || L.size() < 1 || L.empty()) {
 		return res;
 	}
-	map<string, int > toFind;
-	map<string, int> Find;
+	hash_map<string, int > toFind;
+	hash_map<string, int> Find;
 
 	int arr_len = L.size();
 	int str_len = L[0].length();

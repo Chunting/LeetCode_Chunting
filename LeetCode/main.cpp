@@ -1,5 +1,5 @@
 #include "Traversal.h"
-int main() {
+int main_test() {
 	/*
 	vector<int> vec;
 	for (int i = 1; i < 8; ++i){
