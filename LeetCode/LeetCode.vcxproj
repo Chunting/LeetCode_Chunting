@@ -79,18 +79,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="addBinary.cpp" />
     <ClCompile Include="climbStairs.cpp" />
+    <ClCompile Include="connect.cpp" />
     <ClCompile Include="findMedianSortedArrays.cpp" />
     <ClCompile Include="findSubstring.cpp" />
+    <ClCompile Include="insertSortList.cpp" />
     <ClCompile Include="isBalanced.cpp" />
+    <ClCompile Include="isSameTree.cpp" />
     <ClCompile Include="jump2.cpp" />
     <ClCompile Include="LCS.cpp" />
     <ClCompile Include="longestConsecutive.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="maxPoints.cpp" />
+    <ClCompile Include="maxProfit.cpp" />
     <ClCompile Include="maxSubArray.cpp" />
+    <ClCompile Include="merge.cpp" />
     <ClCompile Include="mergeInterval.cpp" />
+    <ClCompile Include="mergeTwoLists.cpp" />
     <ClCompile Include="minCut.cpp" />
+    <ClCompile Include="minDistance.cpp" />
+    <ClCompile Include="minimumTotal.cpp" />
+    <ClCompile Include="preorderTraversal.cpp" />
     <ClCompile Include="removeElement.cpp" />
     <ClCompile Include="req.cpp" />
     <ClCompile Include="reverse.cpp" />
@@ -104,6 +114,7 @@
     <ClCompile Include="wordBreak.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hasCycle.h" />
     <ClInclude Include="Traversal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

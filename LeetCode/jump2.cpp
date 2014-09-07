@@ -21,6 +21,7 @@ int jump(int A[], int n) {
         }
         return dp[n-1];
     }
+/*
 int main() {
 	int A[250000];
 	for( int i = 0; i < 250000; ++i ) {
@@ -31,3 +32,4 @@ int main() {
 
 return 0;
 }
+*/

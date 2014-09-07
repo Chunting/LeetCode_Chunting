@@ -54,6 +54,7 @@ vector<char> Print(string A, string B) {
 	}
 	return common;
 }
+/*
 int main() {
 	string A = "ABCBDABCAB";
 	string B = "BDCABAAC";
@@ -67,3 +68,4 @@ int main() {
 	system("pause");
 	return 0;
 }
+*/

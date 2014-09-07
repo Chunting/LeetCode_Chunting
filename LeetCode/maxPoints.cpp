@@ -7,8 +7,17 @@
  *     Point(int a, int b) : x(a), y(b) {}
  * };
  */
-class Solution {
-public:
+#include<vector>
+#include<unordered_map>
+using namespace std;
+
+struct Point {
+	int x;
+	int y;
+	Point() : x(0), y(0) {}
+	Point(int a, int b) : x(a), y(b) {}
+};
+
     int maxPoints(vector<Point> &points) {
         unordered_map<float, int> mp;
         int maxNum = 0;
@@ -34,4 +43,3 @@ public:
         }
         return maxNum;
     }
-};

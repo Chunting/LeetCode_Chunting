@@ -40,9 +40,6 @@ After calling your function, the tree should look like:
 
 *************************************************************/
 
-
-
-
 #include <stdio.h>
 #include <iostream>
 #include <queue>
@@ -56,34 +53,32 @@ struct TreeLinkNode {
 	TreeLinkNode ( int x ): val( x ), left( NULL ), right( NULL ), next( NULL ) {}
 };
 
-void connect ( TreeLinkNode* root ) {
-	if ( root == NULL )
-		return ;
+void connect(TreeLinkNode* root) {
+	if (root == NULL)
+		return;
 	queue< TreeLinkNode* > Tqueue;
-	Tqueue.push( root );
-	Tqueue.push( NULL );
-	while ( true ) {
+	Tqueue.push(root);
+	Tqueue.push(NULL);
+	while (true) {
 		TreeLinkNode* cur = Tqueue.front();
 		Tqueue.pop();
-		if ( Tqueue.empty() ) {
-			if ( cur == NULL )
+		if (Tqueue.empty()) {
+			if (cur == NULL)
 				break;
 			else {
-				cur -> next = NULL;
+				cur->next = NULL;
+			}
+			TreeLinkNode* curnext = Tqueue.front();
+			if (cur != NULL) {
+				cur->next = curnext;
+				if (cur->left != NULL)
+					Tqueue.push(cur->left);
+				if (cur->right != NULL)
+					Tqueue.push(cur->right);
+			}
+			else {
+				Tqueue.push(NULL);
+			}
 		}
-		TreeLinkNode* curnext = Tqueue.front();
-		if ( cur != NULL ) {
-			cur -> next = curnext;
-			if ( cur -> left != NULL )
-				Tqueue.push( cur -> left );
-			if ( cur -> right != NULL )
-				Tqueue.push ( cur -> right );
-		} else {
-			Tqueue.push ( NULL );
-		}
-
-
 	}
-
-
 }
