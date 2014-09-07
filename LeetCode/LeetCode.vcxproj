@@ -79,10 +79,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="climbStairs.cpp" />
+    <ClCompile Include="findMedianSortedArrays.cpp" />
     <ClCompile Include="findSubstring.cpp" />
+    <ClCompile Include="isBalanced.cpp" />
+    <ClCompile Include="jump2.cpp" />
     <ClCompile Include="LCS.cpp" />
+    <ClCompile Include="longestConsecutive.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxPoints.cpp" />
+    <ClCompile Include="maxSubArray.cpp" />
+    <ClCompile Include="mergeInterval.cpp" />
+    <ClCompile Include="minCut.cpp" />
+    <ClCompile Include="removeElement.cpp" />
+    <ClCompile Include="req.cpp" />
+    <ClCompile Include="reverse.cpp" />
+    <ClCompile Include="ReverseString.cpp" />
+    <ClCompile Include="searchInsert.cpp" />
+    <ClCompile Include="singleNumber.cpp" />
+    <ClCompile Include="SortList.cpp" />
+    <ClCompile Include="sumNumbers.cpp" />
+    <ClCompile Include="swapPairs.cpp" />
     <ClCompile Include="TraversalTree.cpp" />
+    <ClCompile Include="wordBreak.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Traversal.h" />
