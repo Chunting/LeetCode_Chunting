@@ -92,6 +92,7 @@
     <ClCompile Include="longestConsecutive.cpp" />
     <ClCompile Include="longestValidParentheses.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxPathSum.cpp" />
     <ClCompile Include="maxPoints.cpp" />
     <ClCompile Include="maxProfit.cpp" />
     <ClCompile Include="maxSubArray.cpp" />

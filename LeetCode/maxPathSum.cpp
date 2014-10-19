@@ -31,29 +31,29 @@ int max( int a, int b ) {
 }
 void solve( TreeNode* root, int& sum, int& path ) {
 	if ( root == NULL ) {
-		sum = INT_MIN;
-		path = INT_MIN;
+		sum = INT_MIN/10;
+		path = INT_MIN/10;
 		return ;
 	} else {
-		int lsum = INT_MIN, lpath = INT_MIN;
+		int lsum = INT_MIN/10, lpath = INT_MIN/10;
 		if( root->left != NULL ) {
 			solve( root->left, lsum, lpath );
 		}
-		int rsum = INT_MIN, rpath = INT_MIN;
+		int rsum = INT_MIN/10, rpath = INT_MIN/10;
 		if( root->right, rsum, rpath ) {
 			solve( root->right, rsum, rpath );
 		}
 		path = max( root->val, max( lpath, rpath ) + root->val );
-		sum = max( max( lsum, rsum ), lpath + rpath + root->val );
+		sum = max( max( lsum, rsum ), lpath + rpath + root->val ); //If use lpath = rpath =INT_MIN, a problem will show up here.
 		sum = max( sum, path );
 	}
 }
 int maxPathSum(TreeNode *root) {
 	if ( root == NULL ) {
-		return INT_MIN;
+		return INT_MIN/10;
 	}
-	int sum = INT_MIN;
-	int path = INT_MIN;
+	int sum = INT_MIN/10;
+	int path = INT_MIN/10;
 	solve( root, sum, path );
 	return sum;
 }
