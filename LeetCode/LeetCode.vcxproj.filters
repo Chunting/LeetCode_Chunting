@@ -122,5 +122,8 @@
     <ClCompile Include="minDistance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="longestValidParentheses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

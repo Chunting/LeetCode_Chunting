@@ -7,9 +7,6 @@ For example,
  b = "1"
  Return "100". 
 
-
-
-
 *****************************************************************/
 #include< stdio.h >
 #include< iostream >

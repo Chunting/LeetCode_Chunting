@@ -90,6 +90,7 @@
     <ClCompile Include="jump2.cpp" />
     <ClCompile Include="LCS.cpp" />
     <ClCompile Include="longestConsecutive.cpp" />
+    <ClCompile Include="longestValidParentheses.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="maxPoints.cpp" />
     <ClCompile Include="maxProfit.cpp" />
